@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6060cce7adf71b227138cd06"
+  },
+  "name": "Getränke",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060ccefadf71b227138cd07"
+  },
+  "name": "Nachtisch",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060ccf6adf71b227138cd08"
+  },
+  "name": "Hauptgericht",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6060d85badf71b227138cd13"
+  },
+  "name": "Salat",
+  "__v": 0
+}]

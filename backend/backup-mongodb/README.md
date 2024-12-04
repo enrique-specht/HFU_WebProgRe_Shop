@@ -1,0 +1,1 @@
+Data has to be imported in mongodb as categories for initial template data
