@@ -7,7 +7,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/acer_aspire.jpg",
+  "href": "/images/shop/acer_aspire.jpg",
   "quantity": 100,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent",
@@ -25,7 +25,7 @@
   "categoryId": {
     "$oid": "5feee004c10b79282f1e3d72"
   },
-  "href": "http://localhost:3005/images/shop/aeg_hairdryer.jpg",
+  "href": "/images/shop/aeg_hairdryer.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -43,7 +43,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/android_tv.jpg",
+  "href": "/images/shop/android_tv.jpg",
   "quantity": 5,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -61,7 +61,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/asus_zenbook.png",
+  "href": "/images/shop/asus_zenbook.png",
   "quantity": 1,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -79,7 +79,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/calculator.jpg",
+  "href": "/images/shop/calculator.jpg",
   "quantity": 1000,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -97,7 +97,7 @@
   "categoryId": {
     "$oid": "5feee004c10b79282f1e3d72"
   },
-  "href": "http://localhost:3005/images/shop/comb.jpg",
+  "href": "/images/shop/comb.jpg",
   "quantity": 55,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -112,7 +112,7 @@
   "categoryId": {
     "$oid": "5feedfd3c10b79282f1e3d70"
   },
-  "href": "http://localhost:3005/images/shop/hand_blender.jpg",
+  "href": "/images/shop/hand_blender.jpg",
   "quantity": 11,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -130,7 +130,7 @@
   "categoryId": {
     "$oid": "5feee004c10b79282f1e3d72"
   },
-  "href": "http://localhost:3005/images/shop/hand_brush.jpg",
+  "href": "/images/shop/hand_brush.jpg",
   "quantity": 11,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -145,7 +145,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/iphone_5.jpg",
+  "href": "/images/shop/iphone_5.jpg",
   "quantity": 99,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -163,7 +163,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/iphone_6.jpg",
+  "href": "/images/shop/iphone_6.jpg",
   "quantity": 95,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -181,7 +181,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/iphone_x.jpg",
+  "href": "/images/shop/iphone_x.jpg",
   "quantity": 9,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -199,7 +199,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/macbook_pro.jpg",
+  "href": "/images/shop/macbook_pro.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -217,7 +217,7 @@
   "categoryId": {
     "$oid": "5feee004c10b79282f1e3d72"
   },
-  "href": "http://localhost:3005/images/shop/microfiber_towels.jpg",
+  "href": "/images/shop/microfiber_towels.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -232,7 +232,7 @@
   "categoryId": {
     "$oid": "5feedfd3c10b79282f1e3d70"
   },
-  "href": "http://localhost:3005/images/shop/microwave.jpg",
+  "href": "/images/shop/microwave.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -250,7 +250,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/notebook.jpg",
+  "href": "/images/shop/notebook.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -265,7 +265,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/pen.jpg",
+  "href": "/images/shop/pen.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -280,7 +280,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/perforator.jpg",
+  "href": "/images/shop/perforator.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -295,7 +295,7 @@
   "categoryId": {
     "$oid": "5feedfd3c10b79282f1e3d70"
   },
-  "href": "http://localhost:3005/images/shop/philips_kuechenmaschine.jpg",
+  "href": "/images/shop/philips_kuechenmaschine.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -313,7 +313,7 @@
   "categoryId": {
     "$oid": "5feedfd3c10b79282f1e3d70"
   },
-  "href": "http://localhost:3005/images/shop/philips_mixer.jpg",
+  "href": "/images/shop/philips_mixer.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -331,7 +331,7 @@
   "categoryId": {
     "$oid": "5feedfd3c10b79282f1e3d70"
   },
-  "href": "http://localhost:3005/images/shop/plates.jpg",
+  "href": "/images/shop/plates.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -346,7 +346,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/postit.jpg",
+  "href": "/images/shop/postit.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -361,7 +361,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/samsung_galaxy_3.jpg",
+  "href": "/images/shop/samsung_galaxy_3.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -379,7 +379,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/samsung_galaxy_8.jpg",
+  "href": "/images/shop/samsung_galaxy_8.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -397,7 +397,7 @@
   "categoryId": {
     "$oid": "5feedffdc10b79282f1e3d71"
   },
-  "href": "http://localhost:3005/images/shop/samsung_galaxy_10.jpg",
+  "href": "/images/shop/samsung_galaxy_10.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -415,7 +415,7 @@
   "categoryId": {
     "$oid": "5feee004c10b79282f1e3d72"
   },
-  "href": "http://localhost:3005/images/shop/soap.jpg",
+  "href": "/images/shop/soap.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -430,7 +430,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/tacker.jpg",
+  "href": "/images/shop/tacker.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -445,7 +445,7 @@
   "categoryId": {
     "$oid": "5feee075c10b79282f1e3d74"
   },
-  "href": "http://localhost:3005/images/shop/bag.jpg",
+  "href": "/images/shop/bag.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",
@@ -460,7 +460,7 @@
   "categoryId": {
     "$oid": "5feee004c10b79282f1e3d72"
   },
-  "href": "http://localhost:3005/images/shop/towels.jpg",
+  "href": "/images/shop/towels.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.",

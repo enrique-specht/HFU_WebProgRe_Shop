@@ -11,7 +11,7 @@
     "$oid": "6060cce7adf71b227138cd06"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/apfelsaft.jpg",
+  "href": "/images/fastfood/apfelsaft.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -30,7 +30,7 @@
     "$oid": "6060cce7adf71b227138cd06"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/cola.png",
+  "href": "/images/fastfood/cola.png",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -49,7 +49,7 @@
     "$oid": "6060cce7adf71b227138cd06"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/fanta.jpg",
+  "href": "/images/fastfood/fanta.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -68,7 +68,7 @@
     "$oid": "6060cce7adf71b227138cd06"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/orangensaft.jpg",
+  "href": "/images/fastfood/orangensaft.jpg",
   "quantity": 90,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -87,7 +87,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/apfelkuchen.jpg",
+  "href": "/images/fastfood/apfelkuchen.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -106,7 +106,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/brot.jpg",
+  "href": "/images/fastfood/brot.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -125,7 +125,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/brownie.jpg",
+  "href": "/images/fastfood/brownie.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -144,7 +144,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/pflaumenkuchen.jpg",
+  "href": "/images/fastfood/pflaumenkuchen.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -163,7 +163,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/waffeln.jpg",
+  "href": "/images/fastfood/waffeln.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -182,7 +182,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/macaronen.jpg",
+  "href": "/images/fastfood/macaronen.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -201,7 +201,7 @@
     "$oid": "6060ccefadf71b227138cd07"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/croissant.jpg",
+  "href": "/images/fastfood/croissant.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -220,7 +220,7 @@
     "$oid": "6060d85badf71b227138cd13"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/feldsalat.jpg",
+  "href": "/images/fastfood/feldsalat.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -239,7 +239,7 @@
     "$oid": "6060d85badf71b227138cd13"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/salat_mix.jpg",
+  "href": "/images/fastfood/salat_mix.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -258,7 +258,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/carabonara.jpg",
+  "href": "/images/fastfood/carabonara.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -277,7 +277,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/cheese_burger.jpg",
+  "href": "/images/fastfood/cheese_burger.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -296,7 +296,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/chicken_nuggets.jpg",
+  "href": "/images/fastfood/chicken_nuggets.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -315,7 +315,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/goulasch.jpg",
+  "href": "/images/fastfood/goulasch.jpg",
   "quantity": 33,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -334,7 +334,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/hamburger.jpg",
+  "href": "/images/fastfood/hamburger.jpg",
   "quantity": 11,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -353,7 +353,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/kartoffeln_gebacken.jpg",
+  "href": "/images/fastfood/kartoffeln_gebacken.jpg",
   "quantity": 11,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -372,7 +372,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/kebab.jpg",
+  "href": "/images/fastfood/kebab.jpg",
   "quantity": 11,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -391,7 +391,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/lachs.jpg",
+  "href": "/images/fastfood/lachs.jpg",
   "quantity": 11,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -410,7 +410,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/pizza_salami.jpg",
+  "href": "/images/fastfood/pizza_salami.jpg",
   "quantity": 111,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -429,7 +429,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/pommes.jpg",
+  "href": "/images/fastfood/pommes.jpg",
   "quantity": 1,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -448,7 +448,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/schnitzel.jpg",
+  "href": "/images/fastfood/schnitzel.jpg",
   "quantity": 1,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -467,7 +467,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": false,
-  "href": "http://localhost:3010/images/fastfood/spaghetti.jpg",
+  "href": "/images/fastfood/spaghetti.jpg",
   "quantity": 1,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
@@ -486,7 +486,7 @@
     "$oid": "6060ccf6adf71b227138cd08"
   },
   "vegetarian": true,
-  "href": "http://localhost:3010/images/fastfood/sushi_mix.jpg",
+  "href": "/images/fastfood/sushi_mix.jpg",
   "quantity": 10,
   "rating": 0,
   "shortdescription": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.",
