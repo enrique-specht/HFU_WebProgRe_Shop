@@ -1,11 +1,18 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import App from "../pages/App/App";
+import Shop from "../pages/Shop/Shop";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
-    children: [],
+    children: [
+      {
+        index: true,
+        element: <Shop />,
+      },
+      { path: "*", element: <Shop /> },
+    ],
   },
 ];
 

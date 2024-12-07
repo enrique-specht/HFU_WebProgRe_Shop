@@ -1,0 +1,28 @@
+.NavBar {
+  .pi {
+    font-size: 1.25rem;
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 0.1rem 0.1rem -0.1rem gray;
+
+    .p-inputgroup {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .category {
+      padding: 1rem;
+    }
+  }
+}
