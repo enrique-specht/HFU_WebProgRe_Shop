@@ -12,10 +12,14 @@ function NavBar() {
 
   useEffect(() => {
     dispatch(loadCategories());
-  });
+  }, []);
 
   const categoriesHTML = categories.map((category) => (
-    <Link to={"/shop/" + category.name} key={category._id} className="category">
+    <Link
+      to={"/shop/" + category.name.toLowerCase()}
+      key={category._id}
+      className="category"
+    >
       {category.name}
     </Link>
   ));

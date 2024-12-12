@@ -11,7 +11,7 @@ function Shop() {
 
   useEffect(() => {
     dispatch(loadArticles());
-  });
+  }, []);
 
   const articlesPreviewHTML = (articles: Article[]) =>
     articles.map((article) => (

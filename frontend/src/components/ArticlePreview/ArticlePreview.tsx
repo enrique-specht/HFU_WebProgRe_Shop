@@ -1,10 +1,10 @@
 import { Button } from "primereact/button";
 import "./ArticlePreview.scss";
-import axios from "../../services/axiosInstance";
+import axiosInstance from "../../services/axiosInstance";
 import { Rating } from "primereact/rating";
 
 function ArticlePreview(article: Article) {
-  const axiosBaseUrl = axios.defaults.baseURL;
+  const axiosBaseUrl = axiosInstance.defaults.baseURL;
 
   return (
     <div className="ArticlePreview">
