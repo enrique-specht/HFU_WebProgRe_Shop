@@ -1,0 +1,55 @@
+.Article {
+  .text-green {
+    color: green;
+  }
+
+  .text-red {
+    color: red;
+  }
+
+  .article-shop {
+    display: grid;
+    width: 100%;
+    grid-template:
+      "title" auto
+      "image" auto
+      "actions" auto;
+    gap: 2rem;
+
+    .article-title {
+      grid-area: title;
+    }
+
+    .article-image {
+      grid-area: image;
+
+      img {
+        max-height: 50vh;
+        max-width: 100%;
+      }
+    }
+
+    .article-actions {
+      grid-area: actions;
+
+      .p-inputgroup {
+        max-width: 12rem;
+        margin: 1rem 0;
+      }
+    }
+
+    @media (min-width: 768px) {
+      grid-template:
+        "image title" auto
+        "image actions" 1fr / 2fr 3fr;
+
+      .article-image img {
+        max-width: 50vw;
+      }
+    }
+  }
+
+  .article-description {
+    margin-top: 2rem;
+  }
+}

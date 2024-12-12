@@ -1,6 +1,7 @@
-import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
 import App from "../pages/App/App";
 import Shop from "../pages/Shop/Shop";
+import Article from "../pages/Article/Article";
 
 const routes: RouteObject[] = [
   {
@@ -11,13 +12,18 @@ const routes: RouteObject[] = [
         index: true,
         element: <Shop />,
       },
-      { path: "*", element: <Shop /> },
+      {
+        path: "/article/:articleId",
+        element: <Article />,
+      },
+      { path: "*", element: <Navigate to="/" replace /> },
     ],
   },
 ];
 
 const config = {
   //removes future flag warnings in console
+  //https://github.com/remix-run/react-router/issues/12245
   future: {
     v7_startTransition: true,
     v7_fetcherPersist: true,

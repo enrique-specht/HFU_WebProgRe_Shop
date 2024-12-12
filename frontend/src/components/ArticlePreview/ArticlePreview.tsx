@@ -2,6 +2,7 @@ import { Button } from "primereact/button";
 import "./ArticlePreview.scss";
 import axiosInstance from "../../services/axiosInstance";
 import { Rating } from "primereact/rating";
+import { Link } from "react-router-dom";
 
 function ArticlePreview(article: Article) {
   const axiosBaseUrl = axiosInstance.defaults.baseURL;
@@ -10,11 +11,11 @@ function ArticlePreview(article: Article) {
     <div className="ArticlePreview">
       <img src={axiosBaseUrl + article.href} className="preview-image" />
       <div className="preview-content">
-        <div className="preview-text">
+        <Link to={"/article/" + article._id} className="preview-text">
           <h3>{article.name}</h3>
           <Rating value={article.rating} disabled cancel={false} />
           <span>{article.shortdescription}</span>
-        </div>
+        </Link>
         <div className="preview-actions">
           <span className="price">{article.price} €</span>
           <Button
