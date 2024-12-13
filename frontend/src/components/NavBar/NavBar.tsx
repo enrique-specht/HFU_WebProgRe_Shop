@@ -28,17 +28,35 @@ function NavBar() {
     <div className="NavBar">
       <div className="navigation">
         <Link to="/">
-          <i className="pi pi-home" title="Start"></i>
+          <Button
+            icon="pi pi-home"
+            rounded
+            text
+            severity="contrast"
+            title="Start"
+          />
         </Link>
         <div className="p-inputgroup">
-          <InputText placeholder="Suche" />
+          <InputText placeholder="Suche" id="product-search" />
           <Button icon="pi pi-search" title="Suchen" />
         </div>
         <Link to="/account">
-          <i className="pi pi-user" title="Account"></i>
+          <Button
+            icon="pi pi-user"
+            rounded
+            text
+            severity="contrast"
+            title="Account"
+          />
         </Link>
         <Link to="/cart">
-          <i className="pi pi-shopping-cart" title="Warenkorb"></i>
+          <Button
+            icon="pi pi-shopping-cart"
+            rounded
+            text
+            severity="contrast"
+            title="Warenkorb"
+          />
         </Link>
       </div>
       <div className="categories">{categoriesHTML}</div>

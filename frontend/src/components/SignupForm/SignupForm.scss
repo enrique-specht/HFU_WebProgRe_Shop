@@ -1,0 +1,19 @@
+.SignupForm {
+  .input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .p-float-label,
+  .p-inputtext,
+  .p-password,
+  .p-icon-field {
+    width: 100%;
+  }
+}

@@ -1,6 +1,7 @@
 const User = require('../../models/user');
 const SHA256 = require("crypto-js/sha256");
 const jwt = require('jsonwebtoken');
+const verifyToken = require('./verifyToken');
 
 
 
@@ -65,5 +66,9 @@ module.exports = function (app){
     app.post('/logout', function(req,res){
         res.clearCookie('token');
         res.status(200).send("logout successful")
+    });
+
+    app.get('/verify-token', verifyToken, function(req,res){
+        res.status(200).send("token valid")
     });
 }

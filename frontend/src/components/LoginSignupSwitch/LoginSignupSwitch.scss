@@ -1,0 +1,14 @@
+.LoginSignupSwitch {
+  display: flex;
+  justify-content: center;
+
+  .p-tabview {
+    max-width: 45rem;
+    width: 100%;
+
+    .p-tabview-nav-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

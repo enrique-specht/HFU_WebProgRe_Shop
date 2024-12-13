@@ -26,3 +26,25 @@ interface ShopReducer {
   articles: Article[];
   categories: Category[];
 }
+
+interface UserReducer {
+  isLoggedIn: boolean;
+  isLoading: boolean;
+}
+
+interface SignupRequest {
+  firstname: string;
+  lastname: string;
+  street: string;
+  postcode: string;
+  city: string;
+  country: string;
+  phone: string;
+  email: string;
+  password: string;
+}
+
+interface LoginRequest {
+  email: string;
+  password: string;
+}

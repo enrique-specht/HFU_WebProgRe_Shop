@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
 import App from "../pages/App/App";
 import Shop from "../pages/Shop/Shop";
 import Article from "../pages/Article/Article";
+import Account from "../pages/Account/Account";
 
 const routes: RouteObject[] = [
   {
@@ -15,6 +16,10 @@ const routes: RouteObject[] = [
       {
         path: "/article/:articleId",
         element: <Article />,
+      },
+      {
+        path: "/account",
+        element: <Account />,
       },
       { path: "*", element: <Navigate to="/" replace /> },
     ],
