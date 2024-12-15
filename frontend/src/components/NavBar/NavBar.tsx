@@ -14,14 +14,38 @@ function NavBar() {
     dispatch(loadCategories());
   }, []);
 
+  const mapSubcategories = (category: Category): JSX.Element[] | undefined => {
+    return category.subcategories?.map((subcategory) => (
+      <Link
+        to={`/shop/${category.name.toLowerCase()}/${subcategory.name.toLowerCase()}`}
+        className="subcategory"
+        key={subcategory._id}
+      >
+        {subcategory.name}
+      </Link>
+    ));
+  };
+
   const categoriesHTML = categories.map((category) => (
-    <Link
-      to={"/shop/" + category.name.toLowerCase()}
-      key={category._id}
-      className="category"
-    >
+    // <Link
+    //   to={"/shop/" + category.name.toLowerCase()}
+    //   key={category._id}
+    //   className="category"
+    // >
+    //   {category.name}
+    // </Link>
+    <span key={category._id} className="category">
       {category.name}
-    </Link>
+      <div className="subcategories">
+        <Link
+          to={`/shop/${category.name.toLowerCase()}`}
+          className="category-title"
+        >
+          {category.name}
+        </Link>
+        {mapSubcategories(category)}
+      </div>
+    </span>
   ));
 
   return (
@@ -59,7 +83,12 @@ function NavBar() {
           />
         </Link>
       </div>
-      <div className="categories">{categoriesHTML}</div>
+      <div className="categories">
+        <Link to={"shop"} className="category">
+          Alle
+        </Link>
+        {categoriesHTML}
+      </div>
     </div>
   );
 }

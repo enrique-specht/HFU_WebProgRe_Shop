@@ -11,7 +11,21 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
+        element: <Navigate to="/shop" replace />,
+      },
+      {
+        path: "/shop",
         element: <Shop />,
+        children: [
+          {
+            path: "/shop/:category",
+            element: <Shop />,
+          },
+          {
+            path: "/shop/:category/:subcategory",
+            element: <Shop />,
+          },
+        ],
       },
       {
         path: "/article/:articleId",

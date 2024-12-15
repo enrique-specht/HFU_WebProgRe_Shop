@@ -15,6 +15,7 @@ interface Category {
   _id: string;
   subcategoryIds: string[];
   name: string;
+  subcategories?: Subcategory[];
 }
 
 interface Subcategory {
@@ -25,6 +26,7 @@ interface Subcategory {
 interface ShopReducer {
   articles: Article[];
   categories: Category[];
+  isLoading: boolean;
 }
 
 interface UserReducer {

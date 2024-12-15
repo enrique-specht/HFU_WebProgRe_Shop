@@ -9,6 +9,8 @@
     gap: 0.5rem;
     padding: 1rem;
     box-shadow: 0 0.1rem 0.1rem -0.1rem gray;
+    position: relative;
+    z-index: 100;
 
     .p-inputgroup {
       max-width: 50%;
@@ -20,9 +22,39 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0.5rem 0;
 
     .category {
       padding: 1rem;
+      position: relative;
+
+      &:hover .subcategories,
+      &:focus .subcategories {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .subcategories {
+        display: none;
+        position: absolute;
+        top: 100%;
+        background: white;
+        min-width: 100%;
+        left: 0rem;
+        padding: 1rem;
+        z-index: 1;
+        box-shadow: 0 0rem 0.1rem -0rem gray;
+        border-radius: 0.25rem;
+
+        .category-title {
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid gray;
+        }
+
+        .subcategory {
+          padding: 0.5rem 0;
+        }
+      }
     }
   }
 }
