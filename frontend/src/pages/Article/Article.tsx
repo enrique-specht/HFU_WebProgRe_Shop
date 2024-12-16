@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { Rating } from "primereact/rating";
 import { Button } from "primereact/button";
 import { InputNumber } from "primereact/inputnumber";
-import { Nullable } from "primereact/ts-helpers";
+import { addToCart } from "../../store/userReducer";
 
 function Article() {
   const axiosBaseUrl = axiosInstance.defaults.baseURL;
@@ -15,8 +15,7 @@ function Article() {
   const dispatch = useAppDispatch();
   const { articleId } = useParams(); //https://api.reactrouter.com/v7/functions/react_router.useParams.html
   const [article, setArticle] = useState<Article>();
-  const [quantityToBuy, setQuantityToBuy] =
-    useState<Nullable<number | null>>(1);
+  const [quantityToBuy, setQuantityToBuy] = useState<number>(1);
   const [inStock, setInStock] = useState<boolean>(true);
 
   useEffect(() => {
@@ -32,6 +31,14 @@ function Article() {
   }, [articles]);
 
   if (!article) return <></>;
+
+  const onAddToCartClick = () => {
+    const articleForCart: CartArticle = {
+      id: article._id,
+      quantity: quantityToBuy,
+    };
+    dispatch(addToCart(articleForCart));
+  };
 
   const getIsInStockHTML = (): ReactNode => {
     if (inStock) return <span className="text-green">Auf Lager</span>;
@@ -53,7 +60,7 @@ function Article() {
             <h4>{article.price} €</h4>
             {getIsInStockHTML()}
           </span>
-          <div className="p-inputgroup flex-1">
+          <div className="p-inputgroup">
             <span className="p-inputgroup-addon">Menge</span>
             <InputNumber
               value={quantityToBuy}
@@ -72,6 +79,7 @@ function Article() {
             label="Zum Einkaufswagen hinzufügen"
             className="add-to-cart"
             disabled={!inStock}
+            onClick={onAddToCartClick}
           />
         </div>
       </div>

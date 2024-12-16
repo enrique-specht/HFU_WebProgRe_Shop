@@ -1,0 +1,24 @@
+.Cart {
+  .cart-wrapper {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+
+    .cart-preview {
+      flex: 1 1 0;
+      max-width: 50rem;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .price-sum {
+        font-weight: bold;
+        display: block;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

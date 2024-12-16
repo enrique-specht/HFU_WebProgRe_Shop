@@ -53,8 +53,17 @@
 
         .subcategory {
           padding: 0.5rem 0;
+          white-space: nowrap;
         }
       }
     }
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    margin: 0;
+    background: none;
   }
 }

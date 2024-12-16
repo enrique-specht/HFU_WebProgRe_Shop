@@ -1,4 +1,8 @@
-import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAsyncThunk,
+  createAction,
+} from "@reduxjs/toolkit";
 import axios from "../services/axiosInstance";
 
 export const loadUserState = createAsyncThunk(
@@ -6,9 +10,23 @@ export const loadUserState = createAsyncThunk(
   async () => (await axios.get("/verify-token", { withCredentials: true })).data
 );
 
+export const addToCart = createAction<CartArticle>("user/addToCart");
+export const removeFromCart = createAction<string>("user/removeFromCart");
+export const updateCart = createAction<CartArticle>("user/updateCart");
+
+const getCartFromLocalStorage = (): CartArticle[] => {
+  const cart = localStorage.getItem("cart");
+  return cart ? JSON.parse(cart) : [];
+};
+
+const setCartInLocalStorage = (cart: CartArticle[]) => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
 const initialState: UserReducer = {
   isLoggedIn: false,
   isLoading: true,
+  cart: getCartFromLocalStorage(),
 };
 
 const userReducer = createReducer(initialState, (builder) => {
@@ -26,7 +44,62 @@ const userReducer = createReducer(initialState, (builder) => {
       ...state,
       isLoggedIn: false,
       isLoading: false,
-    }));
+    }))
+    .addCase(addToCart, (state, action) => {
+      const newArticle = action.payload;
+      const existingArticle = state.cart.find(
+        (cartArticle) => cartArticle.id === newArticle.id
+      );
+
+      let updatedCart: CartArticle[];
+      if (existingArticle) {
+        updatedCart = state.cart.map((cartArticle) =>
+          cartArticle.id === newArticle.id
+            ? {
+                ...cartArticle,
+                quantity: cartArticle.quantity + newArticle.quantity,
+              }
+            : cartArticle
+        );
+      } else {
+        updatedCart = [...state.cart, newArticle];
+      }
+
+      setCartInLocalStorage(updatedCart);
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    })
+    .addCase(removeFromCart, (state, action) => {
+      const updatedCart = state.cart.filter(
+        (article) => article.id != action.payload
+      );
+
+      setCartInLocalStorage(updatedCart);
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    })
+    .addCase(updateCart, (state, action) => {
+      const updatedCart = state.cart.map((cartArticle) =>
+        cartArticle.id === action.payload.id
+          ? {
+              ...action.payload,
+            }
+          : cartArticle
+      );
+
+      setCartInLocalStorage(updatedCart);
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    });
 });
 
 export default userReducer;

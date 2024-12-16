@@ -1,0 +1,47 @@
+.CartArticlePreview {
+  display: flex;
+  flex-direction: row;
+  gap: 0 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0.1rem 0.1rem -0.1rem gray;
+
+  .preview-image {
+    height: 8rem;
+    width: 8rem;
+    margin: 0 auto;
+  }
+
+  .preview-content {
+    flex: 1 1 0;
+    max-width: 50rem;
+
+    .preview-text {
+      margin: 0;
+      display: inline-block;
+    }
+
+    .price {
+      float: right;
+      white-space: nowrap;
+    }
+
+    .stock {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+
+  .preview-actions {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .p-inputgroup {
+      max-width: 12rem;
+    }
+  }
+}

@@ -32,6 +32,7 @@ interface ShopReducer {
 interface UserReducer {
   isLoggedIn: boolean;
   isLoading: boolean;
+  cart: CartArticle[];
 }
 
 interface SignupRequest {
@@ -49,4 +50,9 @@ interface SignupRequest {
 interface LoginRequest {
   email: string;
   password: string;
+}
+
+interface CartArticle {
+  id: string;
+  quantity: number;
 }

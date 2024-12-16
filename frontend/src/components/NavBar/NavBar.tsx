@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { loadCategories } from "../../store/shopReducer";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { Link } from "react-router-dom";
+import { Badge } from "primereact/badge";
 
 function NavBar() {
   const categories = useAppSelector((state) => state.shop.categories);
+  const cart = useAppSelector((state) => state.user.cart);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,19 +23,12 @@ function NavBar() {
         className="subcategory"
         key={subcategory._id}
       >
-        {subcategory.name}
+        {"> " + subcategory.name}
       </Link>
     ));
   };
 
   const categoriesHTML = categories.map((category) => (
-    // <Link
-    //   to={"/shop/" + category.name.toLowerCase()}
-    //   key={category._id}
-    //   className="category"
-    // >
-    //   {category.name}
-    // </Link>
     <span key={category._id} className="category">
       {category.name}
       <div className="subcategories">
@@ -80,7 +75,9 @@ function NavBar() {
             text
             severity="contrast"
             title="Warenkorb"
-          />
+          >
+            <Badge value={cart.length} className="cart-badge"></Badge>
+          </Button>
         </Link>
       </div>
       <div className="categories">

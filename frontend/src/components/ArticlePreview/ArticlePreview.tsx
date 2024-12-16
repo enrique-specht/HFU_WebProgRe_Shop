@@ -3,9 +3,20 @@ import "./ArticlePreview.scss";
 import axiosInstance from "../../services/axiosInstance";
 import { Rating } from "primereact/rating";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../../store/hooks";
+import { addToCart } from "../../store/userReducer";
 
 function ArticlePreview(article: Article) {
+  const dispatch = useAppDispatch();
   const axiosBaseUrl = axiosInstance.defaults.baseURL;
+
+  const onAddToCartClick = () => {
+    const articleForCart: CartArticle = {
+      id: article._id,
+      quantity: 1,
+    };
+    dispatch(addToCart(articleForCart));
+  };
 
   return (
     <div className="ArticlePreview">
@@ -22,6 +33,8 @@ function ArticlePreview(article: Article) {
             icon="pi pi-shopping-cart"
             label="Zum Einkaufswagen hinzufügen"
             className="add-to-cart"
+            onClick={onAddToCartClick}
+            disabled={article.quantity === 0}
           />
         </div>
       </div>

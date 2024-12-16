@@ -3,6 +3,7 @@ import App from "../pages/App/App";
 import Shop from "../pages/Shop/Shop";
 import Article from "../pages/Article/Article";
 import Account from "../pages/Account/Account";
+import Cart from "../pages/Cart/Cart";
 
 const routes: RouteObject[] = [
   {
@@ -26,6 +27,10 @@ const routes: RouteObject[] = [
             element: <Shop />,
           },
         ],
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/article/:articleId",
