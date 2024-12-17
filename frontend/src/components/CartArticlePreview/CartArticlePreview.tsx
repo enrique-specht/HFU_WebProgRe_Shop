@@ -17,11 +17,11 @@ function CartArticlePreview(article: Article) {
   const axiosBaseUrl = axiosInstance.defaults.baseURL;
 
   useEffect(() => {
-    const articleInCart = cart.find(
+    const cartArticle = cart.find(
       (cartArticle) => cartArticle.id === article._id
     );
-    setCartArticle(articleInCart);
-    if (articleInCart) setQuantityToBuy(articleInCart.quantity);
+    setCartArticle(cartArticle);
+    if (cartArticle) setQuantityToBuy(cartArticle.quantity);
   }, [article, cart]);
 
   useEffect(() => {

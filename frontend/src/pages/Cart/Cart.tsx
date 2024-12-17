@@ -17,9 +17,10 @@ function Cart() {
   const getSumInfo = () => {
     let priceSum = 0;
     let articlesSum = 0;
-    articlesInCart.forEach((article, index) => {
-      priceSum += cart[index].quantity * article.price;
-      articlesSum += cart[index].quantity;
+    articlesInCart.forEach((article) => {
+      if (!article.quantityInCart) return;
+      priceSum += article.quantityInCart * article.price;
+      articlesSum += article.quantityInCart;
     });
     setPriceSum(priceSum);
     setArticlesSum(articlesSum);
@@ -30,8 +31,21 @@ function Cart() {
   }, []);
 
   useEffect(() => {
-    const articlesInCart = articles.filter((article) =>
-      cart.some((cartArticle) => cartArticle.id === article._id)
+    const articlesInCart = articles.reduce<Article[]>(
+      (filteredArticles, article) => {
+        const cartArticle = cart.find(
+          (cartArticle) => cartArticle.id === article._id
+        );
+
+        if (cartArticle) {
+          filteredArticles.push({
+            ...article,
+            quantityInCart: cartArticle.quantity,
+          });
+        }
+        return filteredArticles;
+      },
+      []
     );
     setArticlesInCart(articlesInCart);
   }, [cart, articles]);

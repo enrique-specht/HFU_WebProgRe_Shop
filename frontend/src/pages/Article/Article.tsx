@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axiosInstance from "../../services/axiosInstance";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import "./Article.scss";
@@ -40,10 +40,11 @@ function Article() {
     dispatch(addToCart(articleForCart));
   };
 
-  const getIsInStockHTML = (): ReactNode => {
-    if (inStock) return <span className="text-green">Auf Lager</span>;
-    return <span className="text-red">Ausverkauft</span>;
-  };
+  const getIsInStockHTML = inStock ? (
+    <span className="text-green">Auf Lager</span>
+  ) : (
+    <span className="text-red">Ausverkauft</span>
+  );
 
   return (
     <div className="Article">
@@ -58,7 +59,7 @@ function Article() {
         <div className="article-actions">
           <span>
             <h4>{article.price} €</h4>
-            {getIsInStockHTML()}
+            {getIsInStockHTML}
           </span>
           <div className="p-inputgroup">
             <span className="p-inputgroup-addon">Menge</span>

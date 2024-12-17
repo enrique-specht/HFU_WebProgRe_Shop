@@ -9,6 +9,7 @@ interface Article {
   shortdescription: string;
   description: string;
   subcategory: string;
+  quantityInCart?: number;
 }
 
 interface Category {
