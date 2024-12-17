@@ -57,3 +57,13 @@ interface CartArticle {
   id: string;
   quantity: number;
 }
+
+interface CheckoutArticle {
+  articleId: string;
+  quantity: number;
+  price: number;
+}
+
+interface CheckoutRequest extends Array<CheckoutArticle> {}
+
+type PaymentMethod = "SEPA" | "creditCard";

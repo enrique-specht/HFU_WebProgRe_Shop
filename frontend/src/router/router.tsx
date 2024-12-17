@@ -4,6 +4,8 @@ import Shop from "../pages/Shop/Shop";
 import Article from "../pages/Article/Article";
 import Account from "../pages/Account/Account";
 import Cart from "../pages/Cart/Cart";
+import Checkout from "../pages/Checkout/Checkout";
+import ThankYou from "../pages/ThankYou/ThankYou";
 
 const routes: RouteObject[] = [
   {
@@ -20,17 +22,23 @@ const routes: RouteObject[] = [
         children: [
           {
             path: "/shop/:category",
-            element: <Shop />,
           },
           {
             path: "/shop/:category/:subcategory",
-            element: <Shop />,
           },
         ],
       },
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout/thank-you",
+        element: <ThankYou />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
       {
         path: "/article/:articleId",

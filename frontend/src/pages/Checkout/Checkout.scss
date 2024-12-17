@@ -1,0 +1,49 @@
+.Checkout {
+  .checkout-wrapper {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 2rem;
+    max-width: 70rem;
+
+    .content {
+      flex: 3 1 0;
+      max-width: 50rem;
+
+      .payment-method {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      margin-bottom: auto;
+      background: white;
+      padding: 1rem;
+      flex: 1 1 0;
+      box-shadow: 0 0.1rem 0.1rem -0.1rem gray;
+
+      .buy-summary {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        white-space: nowrap;
+
+        .summary-right {
+          margin-left: auto;
+        }
+
+        .combined-price {
+          margin-top: 2rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

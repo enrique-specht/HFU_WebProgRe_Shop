@@ -13,6 +13,7 @@ export const loadUserState = createAsyncThunk(
 export const addToCart = createAction<CartArticle>("user/addToCart");
 export const removeFromCart = createAction<string>("user/removeFromCart");
 export const updateCart = createAction<CartArticle>("user/updateCart");
+export const clearCart = createAction("user/clearCart");
 
 const getCartFromLocalStorage = (): CartArticle[] => {
   const cart = localStorage.getItem("cart");
@@ -92,6 +93,16 @@ const userReducer = createReducer(initialState, (builder) => {
             }
           : cartArticle
       );
+
+      setCartInLocalStorage(updatedCart);
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    })
+    .addCase(clearCart, (state, _) => {
+      const updatedCart: CartArticle[] = [];
 
       setCartInLocalStorage(updatedCart);
 
