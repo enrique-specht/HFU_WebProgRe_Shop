@@ -66,10 +66,10 @@ function Cart() {
         <div className="sidebar">
           <span>
             Zwischensumme ({articlesSum} Artikel):
-            <span className="price-sum">{priceSum} €</span>
+            <span className="price-sum">{priceSum.toFixed(2)} €</span>
           </span>
           <Link to="/checkout">
-            <Button label="Zur Kasse" className="to-checkout" />
+            <Button label="Zur Kasse" />
           </Link>
         </div>
       </div>
