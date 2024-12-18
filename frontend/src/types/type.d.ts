@@ -86,3 +86,9 @@ interface Order {
 }
 
 type PaymentMethod = "SEPA" | "creditCard";
+
+interface CheckoutRouterState {
+  articlesForCheckout: Article[];
+  articlesSum: number;
+  priceSum: number;
+}

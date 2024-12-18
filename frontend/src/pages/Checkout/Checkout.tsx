@@ -6,33 +6,18 @@ import CheckoutArticlePreview from "../../components/CheckoutArticlePreview/Chec
 import { RadioButton } from "primereact/radiobutton";
 import { Button } from "primereact/button";
 import axiosInstance from "../../services/axiosInstance";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Dialog } from "primereact/dialog";
 import { clearCart, loadUserState } from "../../store/userReducer";
 import LoginSignupSwitch from "../../components/LoginSignupSwitch/LoginSignupSwitch";
 
 function Checkout() {
-  const { cart, isLoggedIn } = useAppSelector((state) => state.user);
-  const articles = useAppSelector((state) => state.shop.articles);
-  const dispatch = useAppDispatch();
-  const [articlesInCart, setArticlesInCart] = useState<Article[]>([]);
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("SEPA");
-  const [priceSum, setPriceSum] = useState<number>(0);
-  const [articlesSum, setArticlesSum] = useState<number>(0);
-  const [loginVisibility, setLoginVisibility] = useState<boolean>(false);
   const navigate = useNavigate();
-
-  const getSumInfo = () => {
-    let priceSum = 0;
-    let articlesSum = 0;
-    articlesInCart.forEach((article) => {
-      if (!article.quantityInCart) return;
-      priceSum += article.quantityInCart * article.price;
-      articlesSum += article.quantityInCart;
-    });
-    setPriceSum(priceSum);
-    setArticlesSum(articlesSum);
-  };
+  const locationState = useLocation().state as CheckoutRouterState; //https://dev.to/thatfemicode/passing-data-states-through-react-router-8dh
+  const { isLoggedIn } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>();
+  const [loginVisibility, setLoginVisibility] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(loadArticles());
@@ -40,28 +25,8 @@ function Checkout() {
   }, []);
 
   useEffect(() => {
-    const articlesInCart = articles.reduce<Article[]>(
-      (filteredArticles, article) => {
-        const cartArticle = cart.find(
-          (cartArticle) => cartArticle.id === article._id
-        );
-
-        if (cartArticle) {
-          filteredArticles.push({
-            ...article,
-            quantityInCart: cartArticle.quantity,
-          });
-        }
-        return filteredArticles;
-      },
-      []
-    );
-    setArticlesInCart(articlesInCart);
-  }, [cart, articles]);
-
-  useEffect(() => {
-    getSumInfo();
-  }, [articlesInCart]);
+    if (!locationState) navigate("/");
+  }, [locationState, navigate]);
 
   useEffect(() => {
     setLoginVisibility(false);
@@ -73,7 +38,7 @@ function Checkout() {
       return;
     }
 
-    const body = articlesInCart.reduce<CheckoutRequest>(
+    const body = locationState.articlesForCheckout.reduce<CheckoutRequest>(
       (checkoutArticles, article) => {
         checkoutArticles.push({
           articleId: article._id,
@@ -96,12 +61,14 @@ function Checkout() {
       .catch((err) => console.error(err));
   };
 
-  const checkoutArticlesPreviewHTML = articlesInCart.map((article) => (
-    <CheckoutArticlePreview
-      {...article}
-      key={article._id}
-    ></CheckoutArticlePreview>
-  ));
+  const checkoutArticlesPreviewHTML = locationState.articlesForCheckout.map(
+    (article) => (
+      <CheckoutArticlePreview
+        {...article}
+        key={article._id}
+      ></CheckoutArticlePreview>
+    )
+  );
 
   return (
     <div className="Checkout">
@@ -141,19 +108,25 @@ function Checkout() {
         </div>
         <div className="sidebar">
           <div className="buy-summary">
-            <span>Artikel ({articlesSum})</span>
-            <span className="summary-right">{priceSum.toFixed(2)} €</span>
+            <span>Artikel ({locationState.articlesSum})</span>
+            <span className="summary-right">
+              {locationState.priceSum.toFixed(2)} €
+            </span>
 
             <span>Versand</span>
             <span className="summary-right">Kostenlos</span>
 
             <span className="combined-price">Gesamt</span>
             <span className="combined-price summary-right">
-              {priceSum.toFixed(2)} €
+              {locationState.priceSum.toFixed(2)} €
             </span>
           </div>
 
-          <Button label="Kaufen" onClick={onBuyClick} />
+          <Button
+            label="Kaufen"
+            onClick={onBuyClick}
+            disabled={!paymentMethod}
+          />
           <Dialog
             visible={loginVisibility}
             modal

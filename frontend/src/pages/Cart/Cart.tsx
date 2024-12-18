@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import "./Cart.scss";
 import { useEffect, useState } from "react";
 import { loadArticles } from "../../store/shopReducer";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const cart = useAppSelector((store) => store.user.cart);
@@ -13,6 +13,7 @@ function Cart() {
   const [articlesInCart, setArticlesInCart] = useState<Article[]>([]);
   const [priceSum, setPriceSum] = useState<number>(0);
   const [articlesSum, setArticlesSum] = useState<number>(0);
+  const navigate = useNavigate();
 
   const getSumInfo = () => {
     let priceSum = 0;
@@ -58,6 +59,12 @@ function Cart() {
     <CartArticlePreview {...article} key={article._id} />
   ));
 
+  const checkoutRouterState: CheckoutRouterState = {
+    articlesForCheckout: articlesInCart,
+    articlesSum: articlesSum,
+    priceSum: priceSum,
+  };
+
   return (
     <div className="Cart">
       <h1>Einkaufswagen</h1>
@@ -68,9 +75,13 @@ function Cart() {
             Zwischensumme ({articlesSum} Artikel):
             <span className="price-sum">{priceSum.toFixed(2)} €</span>
           </span>
-          <Link to="/checkout">
-            <Button label="Zur Kasse" />
-          </Link>
+          <Button
+            label="Zur Kasse"
+            disabled={cart.length === 0}
+            onClick={() =>
+              navigate("/checkout", { state: checkoutRouterState })
+            }
+          />
         </div>
       </div>
     </div>
