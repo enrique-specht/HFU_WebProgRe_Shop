@@ -34,6 +34,7 @@ interface UserReducer {
   isLoggedIn: boolean;
   isLoading: boolean;
   cart: CartArticle[];
+  orders: Order[];
 }
 
 interface SignupRequest {
@@ -65,5 +66,11 @@ interface CheckoutArticle {
 }
 
 interface CheckoutRequest extends Array<CheckoutArticle> {}
+
+interface Order {
+  articles: CheckoutArticle[];
+  orderDate: string;
+  orderNr: string;
+}
 
 type PaymentMethod = "SEPA" | "creditCard";

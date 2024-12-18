@@ -15,6 +15,11 @@ export const removeFromCart = createAction<string>("user/removeFromCart");
 export const updateCart = createAction<CartArticle>("user/updateCart");
 export const clearCart = createAction("user/clearCart");
 
+export const loadOrders = createAsyncThunk(
+  "user/loadOrders",
+  async () => (await axios.get("/shop/orders", { withCredentials: true })).data
+);
+
 const getCartFromLocalStorage = (): CartArticle[] => {
   const cart = localStorage.getItem("cart");
   return cart ? JSON.parse(cart) : [];
@@ -28,6 +33,7 @@ const initialState: UserReducer = {
   isLoggedIn: false,
   isLoading: true,
   cart: getCartFromLocalStorage(),
+  orders: [],
 };
 
 const userReducer = createReducer(initialState, (builder) => {
@@ -110,7 +116,11 @@ const userReducer = createReducer(initialState, (builder) => {
         ...state,
         cart: updatedCart,
       };
-    });
+    })
+    .addCase(loadOrders.fulfilled, (state, action) => ({
+      ...state,
+      orders: action.payload,
+    }));
 });
 
 export default userReducer;
