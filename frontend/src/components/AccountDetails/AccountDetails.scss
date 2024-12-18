@@ -1,4 +1,35 @@
 .AccountDetails {
+  .header-logout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 2rem;
+    flex-wrap: wrap;
+
+    h1 {
+      display: inline-block;
+    }
+  }
+
+  .account-data-wrapper {
+    display: flex;
+    gap: 2rem 4rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    .adress-data,
+    .contact-data {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    h4 {
+      margin-top: 0;
+    }
+  }
+
   .order-panel {
     margin: 1rem 0;
 

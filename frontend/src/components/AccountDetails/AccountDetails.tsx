@@ -9,8 +9,10 @@ import { Panel } from "primereact/panel";
 import { Link } from "react-router-dom";
 
 function AccountDetails() {
-  const orders = useAppSelector((state) => state.user.orders);
+  const { orders, user } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+
+  if (!user) return;
 
   useEffect(() => {
     dispatch(loadOrders());
@@ -40,10 +42,35 @@ function AccountDetails() {
     </Panel>
   ));
 
+  const accountDataHTML = (
+    <div className="account-data-wrapper">
+      <div className="contact-data">
+        <h4>Kontaktdaten</h4>
+        <span>
+          {user.firstname} {user.lastname}
+        </span>
+        <span>{user.email}</span>
+        <span>{user.phone}</span>
+      </div>
+      <div className="adress-data">
+        <h4>Adressdaten</h4>
+        <span>{user.street}</span>
+        <span>
+          {user.postcode}, {user.city}
+        </span>
+        <span>{user.country}</span>
+      </div>
+    </div>
+  );
+
   return (
     <div className="AccountDetails">
-      <h1>Accountdetails</h1>
-      <LogoutButton />
+      <div className="header-logout">
+        <h1>Accountdetails</h1>
+        <LogoutButton />
+      </div>
+      <h2>Meine Daten</h2>
+      {accountDataHTML}
       <h2>Meine Bestellungen</h2>
       {orderListHTML}
     </div>

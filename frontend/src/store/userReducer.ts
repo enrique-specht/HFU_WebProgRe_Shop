@@ -7,7 +7,7 @@ import axios from "../services/axiosInstance";
 
 export const loadUserState = createAsyncThunk(
   "user/loadUserState",
-  async () => (await axios.get("/verify-token", { withCredentials: true })).data
+  async () => (await axios.get("/account-data", { withCredentials: true })).data
 );
 
 export const addToCart = createAction<CartArticle>("user/addToCart");
@@ -30,6 +30,7 @@ const setCartInLocalStorage = (cart: CartArticle[]) => {
 };
 
 const initialState: UserReducer = {
+  user: {} as User,
   isLoggedIn: false,
   isLoading: true,
   cart: getCartFromLocalStorage(),
@@ -42,8 +43,9 @@ const userReducer = createReducer(initialState, (builder) => {
       ...state,
       isLoading: true,
     }))
-    .addCase(loadUserState.fulfilled, (state, _) => ({
+    .addCase(loadUserState.fulfilled, (state, action) => ({
       ...state,
+      user: action.payload,
       isLoggedIn: true,
       isLoading: false,
     }))
