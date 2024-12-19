@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import shopReducer from "./shopReducer";
 import userReducer from "./userReducer";
+import checkoutReducer from "./checkoutReducer";
 
 const config = {
   reducer: {
     shop: shopReducer,
     user: userReducer,
+    checkout: checkoutReducer,
   },
 };
 

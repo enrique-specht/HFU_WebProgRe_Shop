@@ -1,23 +1,24 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import "./Checkout.scss";
 import CheckoutArticlePreview from "../../components/CheckoutArticlePreview/CheckoutArticlePreview";
-import { RadioButton } from "primereact/radiobutton";
 import { Button } from "primereact/button";
 import axiosInstance from "../../services/axiosInstance";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Dialog } from "primereact/dialog";
 import { clearCart, loadUserState } from "../../store/userReducer";
 import LoginSignupSwitch from "../../components/LoginSignupSwitch/LoginSignupSwitch";
 import { Toast } from "primereact/toast";
+import { MenuItem } from "primereact/menuitem";
+import { Steps } from "primereact/steps";
+import PaymentMethod from "../../components/PaymentMethods/PaymentMethods";
+import DeliveryAddressForm from "../../components/DeliveryAddressForm/DeliveryAddressForm";
 
 function Checkout() {
   const navigate = useNavigate();
   const locationState = useLocation().state as CheckoutRouterState; //https://dev.to/thatfemicode/passing-data-states-through-react-router-8dh
-  const { isLoggedIn } = useAppSelector((state) => state.user);
+  const { isLoggedIn, user, isLoading } = useAppSelector((state) => state.user);
+  const { paymentMethod, address } = useAppSelector((state) => state.checkout);
   const dispatch = useAppDispatch();
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>();
-  const [loginVisibility, setLoginVisibility] = useState<boolean>(false);
   const toast = useRef<Toast>(null);
 
   useEffect(() => {
@@ -28,16 +29,9 @@ function Checkout() {
     if (!locationState) navigate("/");
   }, [locationState, navigate]);
 
-  useEffect(() => {
-    setLoginVisibility(false);
-  }, [isLoggedIn]);
+  if (isLoading) return;
 
   const onBuyClick = () => {
-    if (!isLoggedIn) {
-      setLoginVisibility(true);
-      return;
-    }
-
     const body = locationState.articlesForCheckout.reduce<CheckoutRequest>(
       (checkoutArticles, article) => {
         checkoutArticles.push({
@@ -68,6 +62,19 @@ function Checkout() {
       });
   };
 
+  const validateAddress = (): boolean => {
+    return Object.values(address).every((field) => field);
+  };
+
+  const checkoutSteps: MenuItem[] = [
+    {
+      label: "Anmelden",
+    },
+    {
+      label: "Prüfen & Absenden",
+    },
+  ];
+
   const checkoutArticlesPreviewHTML = locationState.articlesForCheckout.map(
     (article) => (
       <CheckoutArticlePreview
@@ -77,41 +84,44 @@ function Checkout() {
     )
   );
 
+  const stepLoginHTML = (
+    <div>
+      <h3 className="account-header">
+        Ein Account ist notwendig um fortzufahren!
+      </h3>
+      <LoginSignupSwitch />
+    </div>
+  );
+
+  const stepDataCheckHTML = (
+    <div>
+      <div>
+        <h3>Zahlungsmethode</h3>
+        <PaymentMethod />
+      </div>
+      <div>
+        <h3>Lieferadresse</h3>
+        <DeliveryAddressForm {...user} />
+      </div>
+      <div>
+        <h3>Bestellung prüfen</h3>
+        {checkoutArticlesPreviewHTML}
+      </div>
+    </div>
+  );
+
   return (
     <div className="Checkout">
       <h1>Kaufvorgang</h1>
       <div className="checkout-wrapper">
         <div className="content">
-          <div>
-            <h3>Zahlungsmethode</h3>
-            <span className="payment-method">
-              <RadioButton
-                inputId="payment-sepa"
-                name="payment-sepa"
-                value="SEPA"
-                onChange={(e) => setPaymentMethod(e.value)}
-                checked={paymentMethod === "SEPA"}
-              />
-              <label htmlFor="payment-sepa">SEPA-Lastschrift</label>
-            </span>
-            <span className="payment-method">
-              <RadioButton
-                inputId="payment-creditcard"
-                name="payment-creditcard"
-                value="creditCard"
-                onChange={(e) => setPaymentMethod(e.value)}
-                checked={paymentMethod === "creditCard"}
-              />
-              <label htmlFor="payment-creditcard">Kreditkarte</label>
-            </span>
-          </div>
-          <div>
-            <h3>Lieferadresse</h3>
-          </div>
-          <div>
-            <h3>Bestellung prüfen</h3>
-            {checkoutArticlesPreviewHTML}
-          </div>
+          <Steps
+            readOnly
+            model={checkoutSteps}
+            activeIndex={!isLoggedIn ? 0 : 1}
+            className="checkout-steps"
+          />
+          {isLoggedIn ? stepDataCheckHTML : stepLoginHTML}
         </div>
         <div className="sidebar">
           <div className="buy-summary">
@@ -132,19 +142,8 @@ function Checkout() {
           <Button
             label="Kaufen"
             onClick={onBuyClick}
-            disabled={!paymentMethod}
+            disabled={!user || !paymentMethod || !validateAddress()}
           />
-          <Dialog
-            visible={loginVisibility}
-            modal
-            onHide={() => {
-              setLoginVisibility(false);
-            }}
-            header="Ein Account ist notwendig um fortzufahren!"
-            draggable={false}
-          >
-            <LoginSignupSwitch />
-          </Dialog>
         </div>
       </div>
       <Toast ref={toast} position="bottom-center" />

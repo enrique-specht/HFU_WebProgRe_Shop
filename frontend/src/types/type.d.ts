@@ -39,6 +39,18 @@ interface UserReducer {
   orders: Order[];
 }
 
+interface CheckoutReducer {
+  paymentMethod: PaymentMethod;
+  address: Address;
+}
+
+interface Address {
+  street: string;
+  postcode: string;
+  city: string;
+  country: string;
+}
+
 interface SignupRequest {
   firstname: string;
   lastname: string;

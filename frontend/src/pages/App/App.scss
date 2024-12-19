@@ -5,10 +5,12 @@
 
   .Outlet {
     flex: 1 1 0;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
+    padding-top: 0;
 
     @media (min-width: 600px) {
-      padding: 0 2rem;
+      padding: 2rem;
+      padding-top: 0;
     }
   }
 }
