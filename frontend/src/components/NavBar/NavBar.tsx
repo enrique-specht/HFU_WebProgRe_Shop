@@ -1,11 +1,11 @@
 import { Button } from "primereact/button";
 import "./NavBar.scss";
-import { InputText } from "primereact/inputtext";
 import { useEffect } from "react";
 import { loadCategories } from "../../store/shopReducer";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { Link } from "react-router-dom";
 import { Badge } from "primereact/badge";
+import ArticleSearch from "../ArticleSearch/ArticleSearch";
 
 function NavBar() {
   const categories = useAppSelector((state) => state.shop.categories);
@@ -38,9 +38,8 @@ function NavBar() {
             title="Start"
           />
         </Link>
-        <div className="p-inputgroup">
-          <InputText placeholder="Suche" id="product-search" />
-          <Button icon="pi pi-search" title="Suchen" />
+        <div className="search-input">
+          <ArticleSearch />
         </div>
         <Link to="/account">
           <Button

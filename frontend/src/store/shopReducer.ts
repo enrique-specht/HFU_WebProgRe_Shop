@@ -51,6 +51,7 @@ export const updateArticles = createAction<Article[]>("shop/updateArticles");
 const initialState: ShopReducer = {
   articles: [],
   categories: [],
+  articlesForSearch: [],
   isLoading: true,
 };
 
@@ -72,6 +73,7 @@ const shopReducer = createReducer(initialState, (builder) => {
     .addCase(loadArticles.fulfilled, (state, action) => ({
       ...state,
       articles: action.payload,
+      articlesForSearch: action.payload,
       isLoading: false,
     }))
     .addCase(loadArticlesByCategory.pending, (state, _) => ({

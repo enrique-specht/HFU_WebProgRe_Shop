@@ -27,6 +27,7 @@ interface Subcategory {
 interface ShopReducer {
   articles: Article[];
   categories: Category[];
+  articlesForSearch: Article[];
   isLoading: boolean;
 }
 

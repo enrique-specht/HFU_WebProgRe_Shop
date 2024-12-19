@@ -17,11 +17,17 @@ function Shop() {
     (state) => state.shop
   );
   const dispatch = useAppDispatch();
-  const { category, subcategory } = useParams();
+  const { category, subcategory, searchParams } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    loadShownArticles();
+  }, [category, subcategory, categories, searchParams]);
 
   const loadShownArticles = () => {
     if (isLoading) return;
+
+    if (searchParams) return;
 
     if (!category) {
       dispatch(loadArticles());
@@ -55,10 +61,6 @@ function Shop() {
     dispatch(loadArticlesBySubcategory({ categoryId, subcategoryId }));
   };
 
-  useEffect(() => {
-    loadShownArticles();
-  }, [category, subcategory, categories]);
-
   const articlesPreviewHTML = (articles: Article[]) =>
     articles.map((article) => (
       <ArticlePreview {...article} key={article._id}></ArticlePreview>
@@ -71,13 +73,23 @@ function Shop() {
         <FilterDropdown />
         <SortDropdown />
       </div>
-      <DataView
-        value={articles}
-        listTemplate={articlesPreviewHTML}
-        paginator
-        rows={10}
-        className="articles-view"
-      />
+      {isLoading ? (
+        <></>
+      ) : (
+        <div>
+          {articles?.length ? (
+            <DataView
+              value={articles}
+              listTemplate={articlesPreviewHTML}
+              paginator
+              rows={10}
+              className="articles-view"
+            />
+          ) : (
+            <div>Es konnten leider keine passenden Artikel gefunden werden</div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
