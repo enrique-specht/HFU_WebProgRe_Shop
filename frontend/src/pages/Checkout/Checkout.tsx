@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import "./Checkout.scss";
-import { loadArticles } from "../../store/shopReducer";
 import CheckoutArticlePreview from "../../components/CheckoutArticlePreview/CheckoutArticlePreview";
 import { RadioButton } from "primereact/radiobutton";
 import { Button } from "primereact/button";
@@ -20,7 +19,6 @@ function Checkout() {
   const [loginVisibility, setLoginVisibility] = useState<boolean>(false);
 
   useEffect(() => {
-    dispatch(loadArticles());
     dispatch(loadUserState());
   }, []);
 
