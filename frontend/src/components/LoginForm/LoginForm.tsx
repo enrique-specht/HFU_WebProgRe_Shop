@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import "./LoginForm.scss";
 import { Button } from "primereact/button";
 import { FloatLabel } from "primereact/floatlabel";
@@ -7,6 +7,7 @@ import { InputText } from "primereact/inputtext";
 import axiosInstance from "../../services/axiosInstance";
 import { useAppDispatch } from "../../store/hooks";
 import { loadUserState } from "../../store/userReducer";
+import { Toast } from "primereact/toast";
 
 function LoginForm() {
   const [loginData, setLoginData] = useState<LoginRequest>({
@@ -14,6 +15,8 @@ function LoginForm() {
     password: "",
   });
   const disptach = useAppDispatch();
+  const toast = useRef<Toast>(null);
+  const [invalid, setInvalid] = useState<boolean>(false);
 
   const loginFields = [
     { data: "email", label: "Email" },
@@ -35,11 +38,17 @@ function LoginForm() {
   const login = () => {
     axiosInstance
       .post("/login", loginData, { withCredentials: true })
-      .then((res) => {
-        console.log(res.data);
-        disptach(loadUserState());
-      })
-      .catch((err) => console.error(err));
+      .then(() => disptach(loadUserState()))
+      .catch((err) => {
+        console.error(err);
+        setInvalid(true);
+        toast.current?.show({
+          severity: "error",
+          summary: "Anmeldung fehlgeschlagen",
+          detail: "Email oder Passwort falsch!",
+          life: 3000,
+        });
+      });
   };
 
   const loginFormularHTML = loginFields.map(({ data, label }) => (
@@ -51,6 +60,7 @@ function LoginForm() {
           onChange={onLoginDataChange}
           required
           toggleMask
+          invalid={invalid}
         />
       ) : (
         <InputText
@@ -58,6 +68,7 @@ function LoginForm() {
           value={loginData[data as keyof LoginRequest]}
           onChange={onLoginDataChange}
           required
+          invalid={invalid}
         />
       )}
       <label htmlFor={data}>{label}</label>
@@ -71,6 +82,7 @@ function LoginForm() {
         <div className="input-wrapper">{loginFormularHTML}</div>
         <Button type="submit" label="Anmelden" />
       </form>
+      <Toast ref={toast} position="bottom-center" />
     </div>
   );
 }

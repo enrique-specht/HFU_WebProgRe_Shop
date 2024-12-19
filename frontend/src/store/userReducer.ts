@@ -20,6 +20,8 @@ export const loadOrders = createAsyncThunk(
   async () => (await axios.get("/shop/orders", { withCredentials: true })).data
 );
 
+export const clearUserData = createAction("user/clearUserData");
+
 const getCartFromLocalStorage = (): CartArticle[] => {
   const cart = localStorage.getItem("cart");
   return cart ? JSON.parse(cart) : [];
@@ -122,6 +124,11 @@ const userReducer = createReducer(initialState, (builder) => {
     .addCase(loadOrders.fulfilled, (state, action) => ({
       ...state,
       orders: action.payload,
+    }))
+    .addCase(clearUserData, (state, _) => ({
+      ...state,
+      isLoggedIn: false,
+      user: {} as User,
     }));
 });
 

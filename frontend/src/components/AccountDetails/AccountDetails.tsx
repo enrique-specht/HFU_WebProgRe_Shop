@@ -72,7 +72,14 @@ function AccountDetails() {
       <h2>Meine Daten</h2>
       {accountDataHTML}
       <h2>Meine Bestellungen</h2>
-      {orderListHTML}
+      {orders.length ? (
+        orderListHTML
+      ) : (
+        <div className="no-orders">
+          <i className="pi pi-shopping-bag"></i>
+          <h4>Noch keine Bestellungen getätigt</h4>
+        </div>
+      )}
     </div>
   );
 }

@@ -55,6 +55,14 @@ function Cart() {
     getSumInfo();
   }, [articlesInCart]);
 
+  const checkInStock = (): boolean => {
+    return articlesInCart.every((article) =>
+      article.quantityInCart
+        ? article.quantity - article.quantityInCart >= 0
+        : article.quantity > 0
+    );
+  };
+
   const articlesInCartHTML = articlesInCart.map((article) => (
     <CartArticlePreview {...article} key={article._id} />
   ));
@@ -69,7 +77,16 @@ function Cart() {
     <div className="Cart">
       <h1>Einkaufswagen</h1>
       <div className="cart-wrapper">
-        <div className="cart-preview">{articlesInCartHTML}</div>
+        <div className="cart-preview">
+          {articlesInCart.length ? (
+            articlesInCartHTML
+          ) : (
+            <div className="empty-cart">
+              <i className="pi pi-shopping-cart"></i>
+              <h3>Einkaufswagen ist leer</h3>
+            </div>
+          )}
+        </div>
         <div className="sidebar">
           <span>
             Zwischensumme ({articlesSum} Artikel):
@@ -77,7 +94,7 @@ function Cart() {
           </span>
           <Button
             label="Zur Kasse"
-            disabled={cart.length === 0}
+            disabled={cart.length === 0 || !checkInStock()}
             onClick={() =>
               navigate("/checkout", { state: checkoutRouterState })
             }

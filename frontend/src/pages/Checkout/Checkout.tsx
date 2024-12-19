@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import "./Checkout.scss";
 import CheckoutArticlePreview from "../../components/CheckoutArticlePreview/CheckoutArticlePreview";
@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Dialog } from "primereact/dialog";
 import { clearCart, loadUserState } from "../../store/userReducer";
 import LoginSignupSwitch from "../../components/LoginSignupSwitch/LoginSignupSwitch";
+import { Toast } from "primereact/toast";
 
 function Checkout() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function Checkout() {
   const dispatch = useAppDispatch();
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>();
   const [loginVisibility, setLoginVisibility] = useState<boolean>(false);
+  const toast = useRef<Toast>(null);
 
   useEffect(() => {
     dispatch(loadUserState());
@@ -51,12 +53,19 @@ function Checkout() {
 
     axiosInstance
       .post("shop/order", body, { withCredentials: true })
-      .then((res) => {
-        console.log(res.data);
+      .then(() => {
         dispatch(clearCart());
         navigate("/checkout/thank-you");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        toast.current?.show({
+          severity: "error",
+          summary: "Bestellungen fehlgeschlagen",
+          detail: "Etwas ist schiefgelaufen, bitte versuche es erneut.",
+          life: 3000,
+        });
+      });
   };
 
   const checkoutArticlesPreviewHTML = locationState.articlesForCheckout.map(
@@ -138,6 +147,7 @@ function Checkout() {
           </Dialog>
         </div>
       </div>
+      <Toast ref={toast} position="bottom-center" />
     </div>
   );
 }

@@ -30,6 +30,18 @@
     }
   }
 
+  .no-orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+
+    .pi {
+      font-size: 4rem;
+    }
+  }
+
   .order-panel {
     margin: 1rem 0;
 
