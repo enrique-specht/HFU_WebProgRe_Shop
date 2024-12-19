@@ -26,6 +26,7 @@ function ArticleSearch() {
         )
       )
     );
+    setSearch("");
     navigate(`/shop/search/${search}`);
   };
 
