@@ -92,3 +92,8 @@ interface CheckoutRouterState {
   articlesSum: number;
   priceSum: number;
 }
+
+interface SortMethod {
+  label: string;
+  sortMethod: "name" | "price_up" | "price_down" | "rating";
+}

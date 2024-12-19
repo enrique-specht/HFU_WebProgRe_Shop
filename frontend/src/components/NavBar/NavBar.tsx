@@ -16,31 +16,14 @@ function NavBar() {
     dispatch(loadCategories());
   }, []);
 
-  const mapSubcategories = (category: Category): JSX.Element[] | undefined => {
-    return category.subcategories?.map((subcategory) => (
-      <Link
-        to={`/shop/${category.name.toLowerCase()}/${subcategory.name.toLowerCase()}`}
-        className="subcategory"
-        key={subcategory._id}
-      >
-        {"> " + subcategory.name}
-      </Link>
-    ));
-  };
-
   const categoriesHTML = categories.map((category) => (
-    <span key={category._id} className="category">
+    <Link
+      key={category._id}
+      to={`/shop/${category.name.toLowerCase()}`}
+      className="category"
+    >
       {category.name}
-      <div className="subcategories">
-        <Link
-          to={`/shop/${category.name.toLowerCase()}`}
-          className="category-title"
-        >
-          {category.name}
-        </Link>
-        {mapSubcategories(category)}
-      </div>
-    </span>
+    </Link>
   ));
 
   return (

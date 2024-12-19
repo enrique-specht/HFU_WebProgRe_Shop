@@ -1,4 +1,8 @@
-import { createReducer, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createReducer,
+  createAsyncThunk,
+  createAction,
+} from "@reduxjs/toolkit";
 import axios from "../services/axiosInstance";
 
 export const loadCategories = createAsyncThunk(
@@ -41,6 +45,8 @@ export const loadArticlesBySubcategory = createAsyncThunk(
       await axios.get<Article[]>(`/shop/articles/${args.categoryId}`)
     ).data.filter((article) => article.subcategory === args.subcategoryId)
 );
+
+export const updateArticles = createAction<Article[]>("shop/updateArticles");
 
 const initialState: ShopReducer = {
   articles: [],
@@ -85,6 +91,10 @@ const shopReducer = createReducer(initialState, (builder) => {
       ...state,
       articles: action.payload,
       isLoading: false,
+    }))
+    .addCase(updateArticles, (state, action) => ({
+      ...state,
+      articles: action.payload,
     }));
 });
 

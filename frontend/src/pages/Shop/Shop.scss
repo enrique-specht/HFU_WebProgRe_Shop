@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
 
+  .article-filters {
+    display: flex;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    justify-content: right;
+    margin-bottom: 1rem;
+  }
+
   .articles-view {
     align-self: center;
   }

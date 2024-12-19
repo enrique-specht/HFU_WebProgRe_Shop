@@ -1,0 +1,8 @@
+.SortDropdown {
+  width: 100%;
+  min-width: 17rem;
+
+  @media (min-width: 600px) {
+    width: fit-content;
+  }
+}

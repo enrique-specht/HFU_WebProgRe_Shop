@@ -21,10 +21,12 @@ const routes: RouteObject[] = [
         element: <Shop />,
         children: [
           {
-            path: "/shop/:category",
+            path: ":category",
+            element: <Shop />,
           },
           {
-            path: "/shop/:category/:subcategory",
+            path: ":category/:subcategory",
+            element: <Shop />,
           },
         ],
       },

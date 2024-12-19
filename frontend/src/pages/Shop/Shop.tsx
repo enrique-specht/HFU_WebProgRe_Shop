@@ -9,6 +9,8 @@ import {
 import ArticlePreview from "../../components/ArticlePreview/ArticlePreview";
 import { DataView } from "primereact/dataview";
 import { useNavigate, useParams } from "react-router-dom";
+import SortDropdown from "../../components/SortDropdown/SortDropdown";
+import FilterDropdown from "../../components/FilterDropdown/FilterDropdown";
 
 function Shop() {
   const { articles, categories, isLoading } = useAppSelector(
@@ -65,6 +67,10 @@ function Shop() {
   return (
     <div className="Shop">
       <h1>Shop</h1>
+      <div className="article-filters">
+        <FilterDropdown />
+        <SortDropdown />
+      </div>
       <DataView
         value={articles}
         listTemplate={articlesPreviewHTML}
