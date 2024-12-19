@@ -26,8 +26,8 @@ function ArticleSearch() {
         )
       )
     );
-    setSearch("");
     navigate(`/shop/search/${search}`);
+    setSearch("");
   };
 
   const onKeyDown = (key: string) => {
