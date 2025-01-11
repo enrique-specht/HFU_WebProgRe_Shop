@@ -13,4 +13,15 @@
   .articles-view {
     align-self: center;
   }
+
+  .no-articles-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .pi {
+      font-size: 5rem;
+    }
+  }
 }

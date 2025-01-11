@@ -86,7 +86,10 @@ function Shop() {
               className="articles-view"
             />
           ) : (
-            <div>Es konnten leider keine passenden Artikel gefunden werden</div>
+            <div className="no-articles-found">
+              <i className="pi pi-search"></i>
+              <h3>Es konnten leider keine passenden Artikel gefunden werden</h3>
+            </div>
           )}
         </div>
       )}
