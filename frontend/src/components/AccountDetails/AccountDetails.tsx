@@ -7,23 +7,29 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Panel } from "primereact/panel";
 import { Link } from "react-router-dom";
+import { loadArticles } from "../../store/shopReducer";
 
 function AccountDetails() {
   const { orders, user } = useAppSelector((state) => state.user);
+  const articles = useAppSelector((state) => state.shop.articles);
   const dispatch = useAppDispatch();
 
   if (!user) return;
 
   useEffect(() => {
     dispatch(loadOrders());
+    dispatch(loadArticles());
   }, []);
 
   const dataArticleTemplate = (article: CheckoutArticle) => (
-    <Link to={`/article/${article.articleId}`}>{article.articleId}</Link>
+    <Link to={`/article/${article.articleId}`}>
+      {articles.find((fullArticle) => fullArticle._id === article.articleId)
+        ?.name ?? article.articleId}
+    </Link>
   );
 
   const dataPriceTemplate = (article: CheckoutArticle) => (
-    <span>{article.price} €</span>
+    <span className="no-wrap">{article.price} €</span>
   );
 
   const orderListHTML = orders.map((order) => (
@@ -35,9 +41,24 @@ function AccountDetails() {
       className="order-panel"
     >
       <DataTable value={order.articles} stripedRows size="small">
-        <Column field="articleId" header="Artikel" body={dataArticleTemplate} />
-        <Column field="price" header="Preis" body={dataPriceTemplate} />
-        <Column field="quantity" header="Menge" />
+        <Column header="Artikel" body={dataArticleTemplate} />
+        <Column
+          field="articleId"
+          header="Artikel ID"
+          bodyClassName="column-article-id"
+          headerClassName="column-article-id"
+        />
+        <Column
+          field="price"
+          header="Preis"
+          body={dataPriceTemplate}
+          headerClassName="column-price"
+        />
+        <Column
+          field="quantity"
+          header="Menge"
+          headerClassName="column-amount"
+        />
       </DataTable>
     </Panel>
   ));

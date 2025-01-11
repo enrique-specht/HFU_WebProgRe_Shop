@@ -48,5 +48,33 @@
     .p-panel-content {
       padding: 0;
     }
+
+    .p-datatable-table {
+      table-layout: fixed;
+    }
+
+    .p-datatable-tbody {
+      overflow-wrap: anywhere;
+    }
+
+    .no-wrap {
+      text-wrap: nowrap;
+    }
+
+    .column-article-id {
+      display: none;
+
+      @media (min-width: 600px) {
+        display: table-cell;
+      }
+    }
+
+    .column-price {
+      width: 7rem;
+    }
+
+    .column-amount {
+      width: 5rem;
+    }
   }
 }
