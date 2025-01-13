@@ -5,40 +5,36 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "../services/axiosInstance";
 
-export const loadCategories = createAsyncThunk(
-  "shop/loadCategories",
-  async () => {
-    const categories = (await axios.get<Category[]>("/shop/categories")).data;
-    const subcategories = (
-      await axios.get<Subcategory[]>("/shop/subcategories")
-    ).data;
+const loadCategories = createAsyncThunk("shop/loadCategories", async () => {
+  const categories = (await axios.get<Category[]>("/shop/categories")).data;
+  const subcategories = (await axios.get<Subcategory[]>("/shop/subcategories"))
+    .data;
 
-    const mergedCategories: Category[] = categories.map((category) => {
-      const subcategoriesForCategory = subcategories.filter((subcategory) =>
-        category.subcategoryIds.includes(subcategory._id)
-      );
-      return {
-        ...category,
-        subcategories: subcategoriesForCategory,
-      };
-    });
+  const mergedCategories: Category[] = categories.map((category) => {
+    const subcategoriesForCategory = subcategories.filter((subcategory) =>
+      category.subcategoryIds.includes(subcategory._id)
+    );
+    return {
+      ...category,
+      subcategories: subcategoriesForCategory,
+    };
+  });
 
-    return mergedCategories;
-  }
-);
+  return mergedCategories;
+});
 
-export const loadArticles = createAsyncThunk(
+const loadArticles = createAsyncThunk(
   "shop/loadArticles",
   async () => (await axios.get<Article[]>("/shop/articles")).data
 );
 
-export const loadArticlesByCategory = createAsyncThunk(
+const loadArticlesByCategory = createAsyncThunk(
   "shop/loadArticlesByCategory",
   async (categoryId: string) =>
     (await axios.get<Article[]>(`/shop/articles/${categoryId}`)).data
 );
 
-export const loadArticlesBySubcategory = createAsyncThunk(
+const loadArticlesBySubcategory = createAsyncThunk(
   "shop/loadArticlesBySubcategory",
   async (args: { categoryId: string; subcategoryId: string }) =>
     (
@@ -46,7 +42,7 @@ export const loadArticlesBySubcategory = createAsyncThunk(
     ).data.filter((article) => article.subcategory === args.subcategoryId)
 );
 
-export const updateArticles = createAction<Article[]>("shop/updateArticles");
+const updateArticles = createAction<Article[]>("shop/updateArticles");
 
 const initialState: ShopReducer = {
   articles: [],
@@ -101,3 +97,10 @@ const shopReducer = createReducer(initialState, (builder) => {
 });
 
 export default shopReducer;
+export {
+  loadArticles,
+  loadArticlesByCategory,
+  loadArticlesBySubcategory,
+  loadCategories,
+  updateArticles,
+};

@@ -1,9 +1,9 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 
-export const updatePaymentMethod = createAction<PaymentMethod>(
+const updatePaymentMethod = createAction<PaymentMethod>(
   "checkout/updatePaymentMethod"
 );
-export const updateAddress = createAction<Address>("checkout/updateAddress");
+const updateAddress = createAction<Address>("checkout/updateAddress");
 
 const initialState: CheckoutReducer = {
   paymentMethod: "" as PaymentMethod,
@@ -23,3 +23,4 @@ const checkoutReducer = createReducer(initialState, (builder) => {
 });
 
 export default checkoutReducer;
+export { updatePaymentMethod, updateAddress };

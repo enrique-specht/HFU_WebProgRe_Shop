@@ -18,7 +18,7 @@ function CheckoutArticlePreview(article: Article) {
           <span>Gesamtpreis: </span>
           <span>
             {article.quantityInCart
-              ? (article.price * article.quantityInCart).toFixed(2) //https://stackoverflow.com/questions/7493641/incorrect-multiplication-answer
+              ? (article.price * article.quantityInCart).toFixed(2)
               : article.price}
             €
           </span>

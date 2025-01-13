@@ -5,22 +5,22 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "../services/axiosInstance";
 
-export const loadUserState = createAsyncThunk(
+const loadUserState = createAsyncThunk(
   "user/loadUserState",
   async () => (await axios.get("/account-data", { withCredentials: true })).data
 );
 
-export const addToCart = createAction<CartArticle>("user/addToCart");
-export const removeFromCart = createAction<string>("user/removeFromCart");
-export const updateCart = createAction<CartArticle>("user/updateCart");
-export const clearCart = createAction("user/clearCart");
+const addToCart = createAction<CartArticle>("user/addToCart");
+const removeFromCart = createAction<string>("user/removeFromCart");
+const updateCart = createAction<CartArticle>("user/updateCart");
+const clearCart = createAction("user/clearCart");
 
-export const loadOrders = createAsyncThunk(
+const loadOrders = createAsyncThunk(
   "user/loadOrders",
   async () => (await axios.get("/shop/orders", { withCredentials: true })).data
 );
 
-export const clearUserData = createAction("user/clearUserData");
+const clearUserData = createAction("user/clearUserData");
 
 const getCartFromLocalStorage = (): CartArticle[] => {
   const cart = localStorage.getItem("cart");
@@ -133,3 +133,12 @@ const userReducer = createReducer(initialState, (builder) => {
 });
 
 export default userReducer;
+export {
+  loadOrders,
+  loadUserState,
+  addToCart,
+  updateCart,
+  clearCart,
+  removeFromCart,
+  clearUserData,
+};
